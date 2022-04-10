@@ -32,7 +32,7 @@ public class Scale extends JFrame {
     ImageIcon icon = new ImageIcon("exer2.GIF");
     ImageIcon icon1= new ImageIcon("eyeexer.gif");
     ImageIcon icon2= new ImageIcon("neck3.gif");
-    ImageIcon icon3= new ImageIcon("null");
+    ImageIcon icon3= new ImageIcon("null");//for displaying no image
 
 
     exer2 = icon.getImage();
@@ -47,7 +47,7 @@ public class Scale extends JFrame {
 
 public void paint(Graphics g){
 
-   bf = new BufferedImage( this.getWidth(),this.getHeight(), BufferedImage.TYPE_INT_RGB);
+   bf = new BufferedImage( this.getWidth(),this.getHeight(), BufferedImage.TYPE_INT_RGB);//to stop flickering of animation
 
 try{
 animation(bf.getGraphics());
@@ -66,7 +66,7 @@ g.drawImage(bf,0,0,null);
   }
 
   public synchronized  void go() {
-    // Sleep first to see original
+    //
    
     Image original = exer2;
     Image orignal1=eye;
@@ -107,7 +107,7 @@ g.drawImage(bf,0,0,null);
     
     
     }
-    //round 2
+    //round 2 Second Interval
     if(i>0)
     {
     	
@@ -149,7 +149,7 @@ g.drawImage(bf,0,0,null);
     Scale f = new Scale();
     f.setSize(400, 400);
     f.setTitle("ErgoFit");//set title 
-	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//close but run in background
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//close
 	f.setVisible(true); 
 	f.setState(Frame.ICONIFIED);
 	 label=new JLabel(); 
@@ -164,7 +164,7 @@ g.drawImage(bf,0,0,null);
    // f.show();
 	
     //f.go();
-    final ScheduledExecutorService scheduler =Executors.newScheduledThreadPool(1);
+    final ScheduledExecutorService scheduler =Executors.newScheduledThreadPool(1);  // popup application after certain time intervals
 
     	        final Runnable beeper = new Runnable() {
     	                public void run() {
