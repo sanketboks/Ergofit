@@ -20,20 +20,25 @@ public class Scale extends JFrame {
   Image exer2;
   Image neck;
   Image eye;
+  Image noi;
   static int i=0;
   Insets insets;
   static JLabel label;
   private BufferedImage bf;
+  JFrame j;
 
   public Scale() {
     super();
     ImageIcon icon = new ImageIcon("exer2.GIF");
     ImageIcon icon1= new ImageIcon("eyeexer.gif");
     ImageIcon icon2= new ImageIcon("neck3.gif");
+    ImageIcon icon3= new ImageIcon("null");
+
 
     exer2 = icon.getImage();
     eye =icon1.getImage();
     neck=icon2.getImage();
+    noi=icon3.getImage();
   }
   
   public void update(Graphics g){
@@ -66,6 +71,7 @@ g.drawImage(bf,0,0,null);
     Image original = exer2;
     Image orignal1=eye;
     Image orignal2=neck;
+    Image noim=noi;
    {
 	   //round 1
     if(i==0)
@@ -87,12 +93,24 @@ g.drawImage(bf,0,0,null);
 
     repaint();
     rest();
+	
+	//image = noim.getScaledInstance(400, -1, Image.SCALE_DEFAULT);
+	/* * label.setText("Daily do exercise");
+	 * label.setHorizontalTextPosition(JLabel.CENTER);
+	 * label.setVerticalTextPosition(JLabel.BOTTOM);
+	 * label.setVerticalAlignment(JLabel.CENTER);
+	 * label.setHorizontalAlignment(JLabel.CENTER); repaint(); rest();
+	 */
+	 repaint();
+	    
+	
     
     
     }
     //round 2
     if(i>0)
     {
+    	
     image = orignal2.getScaledInstance(400, -1, Image.SCALE_DEFAULT);
     repaint();
     rest();
@@ -100,9 +118,18 @@ g.drawImage(bf,0,0,null);
     image = orignal1.getScaledInstance(400, -1, Image.SCALE_DEFAULT);
     repaint();
    rest();
+   
+  
     }
    System.out.println(System.currentTimeMillis());
    }
+   image = noim.getScaledInstance(400, -1, Image.SCALE_DEFAULT);
+   label.setText("You're awesome");
+   label.setHorizontalTextPosition(JLabel.CENTER);
+	 label.setVerticalTextPosition(JLabel.CENTER);
+	 label.setVerticalAlignment(JLabel.CENTER);
+	  label.setHorizontalAlignment(JLabel.CENTER);
+  
    
   
    // System.exit(0);
@@ -116,6 +143,7 @@ g.drawImage(bf,0,0,null);
     } catch (InterruptedException ignored) {
     }
   }
+  
 
   public static void main(String args[]) {
     Scale f = new Scale();
@@ -165,7 +193,6 @@ g.drawImage(bf,0,0,null);
 }
            
          
-    
-    
+
     
     
